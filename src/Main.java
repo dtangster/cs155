@@ -6,8 +6,42 @@ import java.util.Stack;
  */
 public class Main {
     public static void main(String [] args) {
-        smallGraph();
         completeGraph();
+        smallGraph();
+        figureOne();
+    }
+
+    public static void figureOne() {
+        Graph graph = new Graph();
+
+        // Create nodes 1 through 6
+        for (int i = 0; i < 6; i++) {
+            graph.addNode();
+        }
+
+        // Create edges
+        graph.addEdge(1, 2);
+        graph.addEdge(1, 5);
+        graph.addEdge(2, 3);
+        graph.addEdge(3, 4);
+        graph.addEdge(3, 5);
+        graph.addEdge(4, 1);
+        graph.addEdge(5, 6);
+        graph.addEdge(6, 3);
+
+        System.out.println("Printing all nodes in the graph");
+        graph.printNodes();
+
+        System.out.println("Calculating longest simple cycle length");
+        graph.findLongestSimpleCycle();
+
+        System.out.println("Longest cycle found: " + graph.getLongestSimpleCycleLength());
+
+        // Print the path of the longest simple cycle found
+        Stack<Node> pathClone = graph.getLongestSimpleCyclePath();
+        while (!pathClone.isEmpty()) {
+            System.out.println(pathClone.pop().getValue());
+        }
     }
 
     public static void smallGraph() {
