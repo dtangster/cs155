@@ -5,8 +5,7 @@ import java.util.*;
  * @author David Tang & Ezekiel Calubaquib
  */
 public class Graph {
-    public static int NODE_VALUE = 1; // Auto-incrementing integer to create Nodes with unique values
-
+    private int autoIncrementingValue; // Auto-incrementing integer to create Nodes with unique values
     private Map<Integer, Node> nodes; // Contains mappings of the Node's integer value to the Node object
     private int longestSimpleCycleLength;
     private Stack<Node> longestSimpleCyclePath;
@@ -15,19 +14,19 @@ public class Graph {
      * Default constructor to initialize instance variables
      */
     public Graph() {
-        NODE_VALUE = 1;
+        autoIncrementingValue = 1;
         nodes = new HashMap<Integer, Node>();
         longestSimpleCycleLength = 0;
         longestSimpleCyclePath = null;
     }
 
     /**
-     * Creates a node with the value determined by NODE_VALUE
+     * Creates a node with the value determined by autoIncrementingValue
      * @return The value of the Node that was just created
      */
     public int addNode() {
-        nodes.put(NODE_VALUE, new Node(NODE_VALUE));
-        return NODE_VALUE++;
+        nodes.put(autoIncrementingValue, new Node(autoIncrementingValue));
+        return autoIncrementingValue++;
     }
 
     /**
