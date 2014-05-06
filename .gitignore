@@ -1,0 +1,9 @@
+*.o
+.DS_Store
+tags
+workspace.xml
+misc.xml
+*.class
+out/
+.idea/
+*.iml
