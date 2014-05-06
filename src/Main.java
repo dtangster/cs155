@@ -1,5 +1,9 @@
 import java.util.Stack;
 
+/**
+ * Driver class to test the functionality of our implementation for finding the longest simple cycle.
+ * @author David Tang & Ezekiel Calubaquib
+ */
 public class Main {
     public static void main(String [] args) {
         Graph graph = new Graph();
@@ -9,6 +13,7 @@ public class Main {
             graph.addNode();
         }
 
+        // Create edges
         graph.addEdge(1, 2);
         graph.addEdge(1, 3);
         graph.addEdge(2, 4);
