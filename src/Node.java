@@ -6,17 +6,11 @@ import java.util.Map;
  * @author David Tang & Ezekiel Calubaquib
  */
 public class Node {
-    // EXTRA_VISITS will determine how many extra times a node can be revisited after it has been completed
-    // If the number of nodes in the graph is high, this number should be set higher to get a more accurate result.
-    // In the worst case, increasing the EXTRA_VISITS will increase the runtime exponentially if it is close to
-    // a complete graph.
-    public static final int EXTRA_VISITS = 5;
-
     private int value;
     private Node parent; // Used for backtracking when a cycle is found
     private Status status; // Can be: UNVISITED, VISITED, or COMPLETED
     private Map<Integer, Node> adjacencyList; // Mapping of Node values to the Node objects themself
-    private int incomingEdges; // The number of times this Node should be visited is incomingEdges + EXTRA_VISITS
+    private int incomingEdges; // The number of times this Node should be visited is incomingEdges
     private int timesVisited; // Count the number of times the node has been revisited
 
     /**
@@ -148,11 +142,11 @@ public class Node {
 
     /**
      * This method is called during the Graph.dfs() method. It will determine if this Node will be revisited. The
-     * total number of times this Node should be visited is the number of incoming edges + EXTRA_VISITS.
+     * total number of times this Node should be visited is the number of incoming edges.
      * @return True if the number of visited has not been used up. False otherwise.
      */
     public boolean shouldVisit() {
-        return timesVisited < incomingEdges + EXTRA_VISITS && status == Status.COMPLETED;
+        return timesVisited < incomingEdges && status == Status.COMPLETED;
     }
 
     /**

@@ -113,6 +113,8 @@ public class Graph {
                     cyclePath.push(temp);
                 }
 
+                cyclePath.push(u);
+
                 // When iterating through a Stack Collection, it does not give the intended order. The values must be
                 // popped in order to get the desired order. The clone will make sure we still have a copy after popping.
                 Stack<Node> pathClone = (Stack<Node>) cyclePath.clone();
