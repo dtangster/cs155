@@ -51,7 +51,6 @@ public class Main {
         int numberOfNodes = 100;
         Graph graph = new Graph();
 
-        // Create nodes 1 through 20
         for (int i = 0; i < numberOfNodes; i++) {
             graph.addNode();
         }
