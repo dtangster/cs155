@@ -6,6 +6,11 @@ import java.util.Stack;
  */
 public class Main {
     public static void main(String [] args) {
+        smallGraph();
+        completeGraph();
+    }
+
+    public static void smallGraph() {
         Graph graph = new Graph();
 
         // Create nodes 1 through 10
@@ -26,6 +31,40 @@ public class Main {
         graph.addEdge(6, 5);
         graph.addEdge(7, 3);
         graph.addEdge(7, 6);
+
+        System.out.println("Printing all nodes in the graph");
+        graph.printNodes();
+
+        System.out.println("Calculating longest simple cycle length");
+        graph.findLongestSimpleCycle();
+
+        System.out.println("Longest cycle found: " + graph.getLongestSimpleCycleLength());
+
+        // Print the path of the longest simple cycle found
+        Stack<Node> pathClone = graph.getLongestSimpleCyclePath();
+        while (!pathClone.isEmpty()) {
+            System.out.println(pathClone.pop().getValue());
+        }
+    }
+
+    public static void completeGraph() {
+        Graph graph = new Graph();
+
+        // Create nodes 1 through 20
+        for (int i = 0; i < 20; i++) {
+            graph.addNode();
+        }
+
+        // Create complete graph
+        for (int i = 1; i <= 20; i++) {
+            for (int j = i + 1; j <= 20; j++) {
+                graph.addEdge(i, j);
+            }
+
+            for (int j = i - 1; j > 0; j--) {
+                graph.addEdge(i, j);
+            }
+        }
 
         System.out.println("Printing all nodes in the graph");
         graph.printNodes();

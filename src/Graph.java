@@ -15,6 +15,7 @@ public class Graph {
      * Default constructor to initialize instance variables
      */
     public Graph() {
+        NODE_VALUE = 1;
         nodes = new HashMap<Integer, Node>();
         longestSimpleCycleLength = 0;
         longestSimpleCyclePath = null;
