@@ -104,7 +104,6 @@ public class Graph {
                 Stack<Node> cyclePath = new Stack<Node>(); // A stack is used because the path will be in reverse order
                 int cycleLength = 1;
 
-                System.out.println("--- Cycle Found ---");
                 cyclePath.push(temp);
 
                 while (temp != v) {
@@ -115,12 +114,16 @@ public class Graph {
 
                 cyclePath.push(u);
 
+                /*
+                // Used for debugging cycle paths
                 // When iterating through a Stack Collection, it does not give the intended order. The values must be
                 // popped in order to get the desired order. The clone will make sure we still have a copy after popping.
+                System.out.println("--- Cycle Found ---");
                 Stack<Node> pathClone = (Stack<Node>) cyclePath.clone();
                 while (!pathClone.isEmpty()) {
                     System.out.println(pathClone.pop().getValue()); // Print path to debug
                 }
+                */
 
                 // If a cycle has been found that is longer than the previous one found, save it!
                 if (longestSimpleCycleLength < cycleLength) {

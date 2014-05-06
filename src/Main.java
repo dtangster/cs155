@@ -48,16 +48,17 @@ public class Main {
     }
 
     public static void completeGraph() {
+        int numberOfNodes = 100;
         Graph graph = new Graph();
 
         // Create nodes 1 through 20
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < numberOfNodes; i++) {
             graph.addNode();
         }
 
         // Create complete graph
-        for (int i = 1; i <= 20; i++) {
-            for (int j = i + 1; j <= 20; j++) {
+        for (int i = 1; i <= numberOfNodes; i++) {
+            for (int j = i + 1; j <= numberOfNodes; j++) {
                 graph.addEdge(i, j);
             }
 
