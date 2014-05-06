@@ -138,7 +138,7 @@ public class Node {
 
     /**
      * This method is called during the Graph.dfs() method. It will determine if this Node will be revisited. The
-     * total number of times this Node should be visited is the number of incoming edges + EXTRA_VISITS.
+     * total number of times this Node should be visited is the number of EXTRA_VISITS.
      * @return True if the number of visited has not been used up. False otherwise.
      */
     public boolean shouldVisit() {
